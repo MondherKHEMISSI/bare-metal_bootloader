@@ -1,0 +1,4 @@
+../Src/ring-buffer.c:10:6:ring_buffer_setup	24	static
+../Src/ring-buffer.c:17:6:ring_buffer_is_empty	16	static
+../Src/ring-buffer.c:21:6:ring_buffer_write	24	static
+../Src/ring-buffer.c:36:6:ring_buffer_read	24	static

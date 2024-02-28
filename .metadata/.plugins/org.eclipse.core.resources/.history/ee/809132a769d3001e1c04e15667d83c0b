@@ -1,0 +1,21 @@
+/*
+ * gpio.h
+ *
+ *  Created on: Feb 24, 2024
+ *      Author: mondher
+ */
+
+#ifndef GPIO_H_
+#define GPIO_H_
+
+#include "base.h"
+
+#define GPIOA_MODER_OFFSET             (0x00)
+#define GPIOA_MODER                    (*(volatile unsigned int *)(GPIOA_PERIPHERAL + GPIOA_MODER_OFFSET))
+
+#define GPIOC_MODER_OFFSET             (0x00)
+#define GPIOC_MODER                    (*(volatile unsigned int *)(GPIOC_PERIPHERAL + GPIOA_MODER_OFFSET))
+
+
+
+#endif /* GPIO_H_ */

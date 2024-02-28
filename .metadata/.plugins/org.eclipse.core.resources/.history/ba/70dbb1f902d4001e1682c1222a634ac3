@@ -1,0 +1,66 @@
+/*
+ * usart.c
+ *
+ *  Created on: Feb 24, 2024
+ *      Author: mondher
+ */
+
+#include "usart.h"
+#include "gpio.h"
+
+/*Enable bits*/
+#define CR1_UE              (1U << 0)
+#define CR1_RE              (1U << 2)
+#define CR1_TE              (1U << 3)
+
+#define ISR_RXNE            (1U << 5)
+#define ISR_TXE             (1U << 7)
+
+#define SYS_FREQ            16000000
+#define PERIPHERAL_CLOCK    SYS_FREQ
+#define BAUDRATE            115200
+
+#define CR1_RXNEIE          (1U << 5)
+
+void usart2_it_config(void){
+	USART2_CR1 |= CR1_RXNEIE;
+}
+
+void usart2_init(void){
+	/*Clock*/
+	RCC_APBENR1 |= (1U << 17);
+
+	/*Alternate function*/
+		//DONE
+
+	/*Configure baudrate*/
+	usart_set_baudrate(PERIPHERAL_CLOCK, BAUDRATE);
+
+	/*Enable RX and TX*/
+	USART2_CR1 |= CR1_TE;
+	USART2_CR1 |= CR1_RE;
+	/*Enable USART*/
+	USART2_CR1 |= CR1_UE;
+
+}
+
+void usart_set_baudrate(uint32_t peripheral_clock, uint32_t baudrate){
+	USART2_BRR = ((peripheral_clock + (baudrate/2U)) / baudrate);
+}
+
+void usart2_write(uint8_t data){
+	while(!(USART2_ISR & ISR_TXE));
+	USART2_TDR = data + 1;
+
+}
+
+uint8_t usart2_read(void){
+	while(!(USART2_ISR & ISR_RXNE));
+	GPIOA_ODR ^= (1U << 5); //GREEN_LED;
+
+	return USART2_RDR;
+}
+
+void USART2_LPUART2_IRQHandler(void){
+	usart2_write(USART2_RDR);
+}

@@ -1,0 +1,7 @@
+../Src/usart.c:33:6:usart2_it_config	8	static
+../Src/usart.c:38:6:usart2_init	8	static
+../Src/usart.c:63:6:usart_set_baudrate	24	static
+../Src/usart.c:67:6:usart2_write	16	static
+../Src/usart.c:74:9:usart2_read	16	static
+../Src/usart.c:81:6:USART2_LPUART2_IRQHandler	8	static
+../Src/usart.c:87:6:usart2_is_data_available	8	static

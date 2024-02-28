@@ -1,0 +1,29 @@
+/*
+ * gpio.c
+ *
+ *  Created on: Feb 24, 2024
+ *      Author: mondher
+ */
+
+#include "gpio.h"
+
+#define GPIOA  (1U << 0)
+#define GPIOC  (1U << 2)
+
+void gpio_init(void){
+
+	//Clocks
+	RCC_IOPENR |= GPIOA;
+	RCC_IOPENR |= GPIOC;
+
+	//Mode
+	GPIOA_MODER |=
+	GPIOC_MODER |=
+}
+
+void led_toggle_onButton(void){
+
+}
+
+
+

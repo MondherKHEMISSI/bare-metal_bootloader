@@ -1,0 +1,13 @@
+/*
+ * gpio.h
+ *
+ *  Created on: Feb 24, 2024
+ *      Author: mondher
+ */
+
+#ifndef GPIO_H_
+#define GPIO_H_
+
+#include "base.h"
+
+#endif /* GPIO_H_ */

@@ -1,0 +1,7 @@
+"./Src/gpio.o"
+"./Src/main.o"
+"./Src/ring-buffer.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Src/usart.o"
+"./Startup/startup_stm32g0b1retx.o"

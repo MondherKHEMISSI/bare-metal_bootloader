@@ -1,0 +1,46 @@
+/*
+ * usart.h
+ *
+ *  Created on: Feb 24, 2024
+ *      Author: mondher
+ */
+
+#ifndef USART_H_
+#define USART_H_
+
+#include "base.h"
+#include <stdint.h>
+
+#define USART2_CR1_OFFSET        (0x00)
+#define USART2_CR1               (*(volatile unsigned int *)USART2_PERIPHERAL + USART2_CR1_OFFSET)
+
+#define USART2_BRR_OFFSET        (0x0C)
+#define USART2_BRR               (*(volatile unsigned int *)USART2_PERIPHERAL + USART2_BRR_OFFSET)
+
+#define USART2_ISR_OFFSET        (0x1C)
+#define USART2_ISR               (*(volatile unsigned int *)USART2_PERIPHERAL + USART2_ISR_OFFSET)
+
+#define USART2_RDR_OFFSET        (0x24)
+#define USART2_RDR               (*(volatile unsigned int *)USART2_PERIPHERAL + USART2_RDR_OFFSET)
+
+#define USART2_TDR_OFFSET        (0x28)
+#define USART2_TDR               (*(volatile unsigned int *)USART2_PERIPHERAL + USART2_TDR_OFFSET)
+
+
+
+/*Enable bits*/
+
+#define CR1_UE      (1U << 0)
+#define CR1_RE      (1U << 2)
+#define CR1_TE      (1U << 3)
+#define ISR_RXNE    (1U << 5)
+#define ISR_TXE     (1U << 7)
+
+/*Prototypes*/
+void usart2_init(void);
+void usart_set_baudrate(uint32_t peripheral_clock, uint32_t baudrate);
+void usart2_write(void);
+void usart2_read(void);
+
+
+#endif /* USART_H_ */

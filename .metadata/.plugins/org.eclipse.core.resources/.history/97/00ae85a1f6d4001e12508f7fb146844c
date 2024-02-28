@@ -1,0 +1,20 @@
+
+#include "gpio.h"
+#include "usart.h"
+
+int main(void)
+{
+	gpio_init();
+	usart2_init();
+    /* Loop forever */
+	for(;;){
+		led_toggle_onButton();
+
+		while(usart2_is_data_available){
+			usart2_write(usart2_read());
+		}
+
+		delay();
+
+	}
+}

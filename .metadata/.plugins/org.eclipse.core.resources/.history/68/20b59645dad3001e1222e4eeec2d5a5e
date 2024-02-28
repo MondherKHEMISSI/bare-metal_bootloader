@@ -1,0 +1,19 @@
+/*
+ * usart.h
+ *
+ *  Created on: Feb 24, 2024
+ *      Author: mondher
+ */
+
+#ifndef USART_H_
+#define USART_H_
+
+#include "base.h"
+#include <stdint.h>
+
+#define USART2_CR1_OFFSET        (0x00)
+#define USART2_CR1               (*(volatile unsigned int *)USART2_PERIPHERAL + USART2_CR1_OFFSET)
+
+
+
+#endif /* USART_H_ */

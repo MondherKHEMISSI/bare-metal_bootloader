@@ -1,0 +1,13 @@
+/*
+ * it.h
+ *
+ *  Created on: Feb 25, 2024
+ *      Author: mondher
+ */
+
+#ifndef IT_H_
+#define IT_H_
+
+#define NVIC_ISER              (*(volatile unsigned int *)(0xE000E100))
+
+#endif /* IT_H_ */

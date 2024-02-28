@@ -1,0 +1,11 @@
+
+#include "gpio.h"
+
+int main(void)
+{
+	gpio_init();
+    /* Loop forever */
+	for(;;){
+		led_toggle_onButton();
+	}
+}
